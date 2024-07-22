@@ -1,41 +1,24 @@
-from Game import Game
+import sys
 
+import modes
 
-# full random simulation
-# make sure to comment line 8 in logs.py
+if __name__ == "__main__":
+    mode = sys.argv[1]
+    
+    if mode == 'single':
+        modes.single()
+    
+    elif mode == 'multi':
+        # full random simulation
 
-num_of_game = 10000
+        try:
+            num_of_game = int(sys.argv[2])
+            if not num_of_game:
+                raise ValueError
 
-game = Game(
-    players=[
-        "Yevhen",
-        "Nastya",
-        "Shasha",
-        "Maxik"
-    ]
-)
-game.pick_wands()
-game.pick_dices()
-
-game.simulate(repeats=num_of_game)
-
-
-
-
-# single random logged play
-# uncomment these and line 8 in logs.py
-
-# num_of_game = 1
-
-# game = Game(
-#     players=[
-#         "Yevhen",
-#         "Nastya",
-#         "Shasha",
-#         "Maxik"
-#     ]
-# )
-# game.pick_wands()
-# game.pick_dices()
-
-# game.simulate(repeats=num_of_game)
+            modes.multi(num_of_game)
+        except ValueError:
+            print(f"use 'python simulation x' where x is number of the games")
+            
+        except IndexError:
+            print(f"use 'python simulation x' where x is number of the games")
