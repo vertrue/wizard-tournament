@@ -5,6 +5,7 @@ import wands
 
 from random import shuffle, randint
 from typing import List
+from prettytable import PrettyTable
 
 
 class Game:
@@ -66,11 +67,21 @@ class Game:
             for player in self.players:
                 player.reset_hp()
 
+        self.output_game_results(winners=winners, repeats=repeats)
+
+    def output_game_results(self, winners, repeats: int):
+        table = PrettyTable(["name", "wand", "dice", "won", "winrate"])
         for player in self.players:
-            player_configs = f"{player.name}:{player.wand.name}:{player.dice}"
-            player_percent = winners.count(player.name) / repeats * 100
-            player_results = f"{winners.count(player.name)} ({player_percent}%)"
-            print(f"{player_configs} = {player_results}")
+            table.add_row(
+                [
+                    player.name,
+                    player.wand.name,
+                    f"d{player.dice}",
+                    f"{winners.count(player.name)}",
+                    f"{winners.count(player.name) / repeats * 100}%",
+                ]
+            )
+        logger.info(table)
 
     @property
     def players_hp(self) -> List[int]:

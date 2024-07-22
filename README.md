@@ -4,7 +4,7 @@
 
 - [ ] game rules
 - [ ] wands description
-- [ ] generate players
+- [x] generate players
 - [ ] pick wands for the generation
 - [ ] visual simulation for a round
 - [ ] statistic for the simulation
