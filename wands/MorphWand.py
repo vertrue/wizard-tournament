@@ -26,11 +26,11 @@ class MorphWand(Wand):
     def critical_success(
         self, roll_result: int, source: Player, target: Player, others: List[Player]
     ):
-        logger.info("Damaging all...")
+        logger.info("Morphing all...")
         self.kill_group(players=others + [source, target])
 
     def critical_failure(
         self, roll_result: int, source: Player, target: Player, others: List[Player]
     ):
-        logger.info("Damaging all...")
+        logger.info("Morphing all...")
         self.kill_group(players=others + [source, target])
