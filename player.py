@@ -3,12 +3,13 @@ from random import sample
 
 from config import random_wizard_names
 
-class Player():
+
+class Player:
     def __init__(self, name: str, order: int) -> None:
         self.hp = 5
         self.name = name
         self.order = order
-        
+
         self.wand = None
         self.dice = None
         self.skip = False
@@ -25,7 +26,7 @@ class Player():
             logger.info(f"Player {self.name} is dead!")
         else:
             logger.info(f"Player {self.name} left with {self.hp} hp!")
-    
+
     def heal(self, hits):
         self.hp += hits
         if self.hp > 5:
@@ -54,12 +55,7 @@ class Player():
             logger.info(f"{self.name}'s wand is broken and player cannot cast!")
             return
         logger.info(f"Player {self.name} is casting with {self.wand.name} and d{self.dice}!")
-        self.wand.cast(
-            dice=self.dice,
-            source=self,
-            target=target,
-            others=others
-        )
+        self.wand.cast(dice=self.dice, source=self, target=target, others=others)
 
     def reset_hp(self):
         self.hp = 5
@@ -70,6 +66,7 @@ class Player():
             return True
         else:
             return False
-        
+
+
 def generate_players(number_of_players: int):
     return sample(random_wizard_names, number_of_players)

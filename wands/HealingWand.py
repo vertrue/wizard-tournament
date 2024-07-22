@@ -5,6 +5,7 @@ from logs import logger
 
 from typing import List
 
+
 class HealingWand(Wand):
     def __init__(self) -> None:
         super().__init__(
@@ -22,13 +23,14 @@ class HealingWand(Wand):
     def failure(self, roll_result: int, source: Player, target: Player, others: List[Player]):
         logger.info(f"Nothing happend to {target.name}...")
 
-    def critical_success(self, roll_result: int, source: Player, target: Player, others: List[Player]):
+    def critical_success(
+        self, roll_result: int, source: Player, target: Player, others: List[Player]
+    ):
         logger.info(f"Healing {target.name}...")
         target.heal(5)
 
-    def critical_failure(self, roll_result: int, source: Player, target: Player, others: List[Player]):
-        logger.info(f"Healing all...")
-        self.heal_group(
-            value=1,
-            players=[source, target]+others
-        )
+    def critical_failure(
+        self, roll_result: int, source: Player, target: Player, others: List[Player]
+    ):
+        logger.info("Healing all...")
+        self.heal_group(value=1, players=[source, target] + others)

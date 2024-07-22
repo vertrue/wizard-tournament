@@ -5,6 +5,7 @@ from logs import logger
 
 from typing import List
 
+
 class GlassWand(Wand):
     def __init__(self) -> None:
         super().__init__(
@@ -20,13 +21,17 @@ class GlassWand(Wand):
         target.brake_wand()
 
     def failure(self, roll_result: int, source: Player, target: Player, others: List[Player]):
-        logger.info(f"Switching wands...")
-        self.switch_wands(players=others+[target, source])
+        logger.info("Switching wands...")
+        self.switch_wands(players=others + [target, source])
 
-    def critical_success(self, roll_result: int, source: Player, target: Player, others: List[Player]):
+    def critical_success(
+        self, roll_result: int, source: Player, target: Player, others: List[Player]
+    ):
         logger.info(f"Breaking {source.name}'s wand...")
-        source.brake_wand()   
+        source.brake_wand()
 
-    def critical_failure(self, roll_result: int, source: Player, target: Player, others: List[Player]):
+    def critical_failure(
+        self, roll_result: int, source: Player, target: Player, others: List[Player]
+    ):
         logger.info(f"Breaking {source.name}'s wand...")
         source.brake_wand()

@@ -6,13 +6,14 @@ import wands
 from random import shuffle, randint
 from typing import List
 
-class Game():
+
+class Game:
     def __init__(self, players: List[str]) -> None:
         self.players: List[Player] = []
 
         for i in range(len(players)):
             self.players.append(Player(name=players[i], order=(i + 1)))
-        
+
         self.total_players = len(self.players)
 
         self.all_wands = wands.all_wands
@@ -52,7 +53,7 @@ class Game():
                 for player in self.players:
                     if player not in [source_player, target_player]:
                         other_players += [player]
-                
+
                 source_player.cast(target=target_player, others=other_players)
                 logger.info("\n")
                 turns += 1
@@ -66,7 +67,10 @@ class Game():
                 player.reset_hp()
 
         for player in self.players:
-            print(f"{player.name}:{player.wand.name}:{player.dice} = {winners.count(player.name)} ({winners.count(player.name) / repeats * 100}%)")
+            player_configs = f"{player.name}:{player.wand.name}:{player.dice}"
+            player_percent = winners.count(player.name) / repeats * 100
+            player_results = f"{winners.count(player.name)} ({player_percent}%)"
+            print(f"{player_configs} = {player_results}")
 
     @property
     def players_hp(self) -> List[int]:
@@ -74,7 +78,7 @@ class Game():
         for player in self.players:
             hps += [player.hp]
         return hps
-    
+
     @property
     def is_only_one_alive(self):
         winners = []
@@ -107,5 +111,3 @@ class Game():
                     winner = player.name
 
             return winner
-
-
