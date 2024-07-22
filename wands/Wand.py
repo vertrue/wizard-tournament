@@ -1,4 +1,4 @@
-from players.Player import Player
+from player import Player
 
 from random import randint
 from typing import List

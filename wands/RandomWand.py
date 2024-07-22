@@ -1,5 +1,5 @@
 import wands
-from players.Player import Player
+from player import Player
 
 from random import choice
 

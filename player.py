@@ -1,4 +1,7 @@
 from logs import logger
+from random import sample
+
+from config import random_wizard_names
 
 class Player():
     def __init__(self, name: str, order: int) -> None:
@@ -67,3 +70,6 @@ class Player():
             return True
         else:
             return False
+        
+def generate_players(number_of_players: int):
+    return sample(random_wizard_names, number_of_players)
