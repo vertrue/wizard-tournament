@@ -3,8 +3,10 @@
 ## Roadmap
 
 - [ ] wands description
-- [ ] generate players 
+- [ ] generate players
+- [ ] pick wands for the generation
 - [ ] visual simulation for a round
+- [ ] statistic for the simulation
 - [ ] `n` numbers of the rounds
 - [ ] config base of the wands
 - [ ] balance wands
