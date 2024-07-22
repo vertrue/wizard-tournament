@@ -18,3 +18,6 @@ if __name__ == "__main__":
 
         except (ValueError, IndexError):
             print("use 'python simulation x' where x is number of the games")
+
+    elif mode == "animated":
+        modes.animated()
