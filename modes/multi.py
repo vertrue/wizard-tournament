@@ -1,4 +1,4 @@
-from Game import Game
+from game import Game
 
 def multi_simulation(num_of_game: int):
 

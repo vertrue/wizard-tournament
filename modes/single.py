@@ -1,4 +1,4 @@
-from Game import Game
+from game import Game
 
 def single_simulation():
     num_of_game = 1

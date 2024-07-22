@@ -1,4 +1,4 @@
-from players.Player import Player
+from player import Player
 from logs import logger
 
 import wands

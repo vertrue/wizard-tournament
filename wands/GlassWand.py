@@ -1,5 +1,5 @@
 from wands.Wand import Wand
-from players.Player import Player
+from player import Player
 
 from logs import logger
 
