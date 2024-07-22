@@ -4,6 +4,7 @@
 
 For detailed game rules, please refer to the [rules/README.md](rules/README.md) file.
 
+
 ## Roadmap
 
 - [x] game rules
