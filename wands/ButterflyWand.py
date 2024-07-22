@@ -5,6 +5,7 @@ from logs import logger
 
 from typing import List
 
+
 class ButterflyWand(Wand):
     def __init__(self) -> None:
         super().__init__(
@@ -16,13 +17,17 @@ class ButterflyWand(Wand):
         self.name = "ButterflyWand"
 
     def success(self, roll_result: int, source: Player, target: Player, others: List[Player]):
-        logger.info(f"Butterflies...")
+        logger.info("Butterflies...")
 
     def failure(self, roll_result: int, source: Player, target: Player, others: List[Player]):
-        logger.info(f"Butterflies...")
+        logger.info("Butterflies...")
 
-    def critical_success(self, roll_result: int, source: Player, target: Player, others: List[Player]):
-        logger.info(f"Butterflies...") 
+    def critical_success(
+        self, roll_result: int, source: Player, target: Player, others: List[Player]
+    ):
+        logger.info("Butterflies...")
 
-    def critical_failure(self, roll_result: int, source: Player, target: Player, others: List[Player]):
-        logger.info(f"Butterflies...")
+    def critical_failure(
+        self, roll_result: int, source: Player, target: Player, others: List[Player]
+    ):
+        logger.info("Butterflies...")

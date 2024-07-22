@@ -5,6 +5,7 @@ from logs import logger
 
 from typing import List
 
+
 class BrokenWand(Wand):
     def __init__(self) -> None:
         super().__init__(
@@ -22,10 +23,14 @@ class BrokenWand(Wand):
         logger.info(f"Damaging {target.name}...")
         target.damage(1)
 
-    def critical_success(self, roll_result: int, source: Player, target: Player, others: List[Player]):
+    def critical_success(
+        self, roll_result: int, source: Player, target: Player, others: List[Player]
+    ):
         logger.info(f"Killing {source.name}...")
         source.kill()
 
-    def critical_failure(self, roll_result: int, source: Player, target: Player, others: List[Player]):
+    def critical_failure(
+        self, roll_result: int, source: Player, target: Player, others: List[Player]
+    ):
         logger.info(f"Killing {target.name}...")
         target.kill()

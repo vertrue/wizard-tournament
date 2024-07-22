@@ -19,7 +19,7 @@ all_wands = [
     FreezingWand,
     WandWand,
     BrokenWand,
-    RandomWand
+    RandomWand,
 ]
 possible_wands = [
     LaserWand,
@@ -31,7 +31,7 @@ possible_wands = [
     FreezingWand,
     WandWand,
     BrokenWand,
-    RandomWand
+    RandomWand,
 ]
 
 dices = [4, 6, 8, 10, 12, 20]

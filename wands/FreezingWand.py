@@ -5,6 +5,7 @@ from logs import logger
 
 from typing import List
 
+
 class FreezingWand(Wand):
     def __init__(self) -> None:
         super().__init__(
@@ -23,17 +24,15 @@ class FreezingWand(Wand):
     def failure(self, roll_result: int, source: Player, target: Player, others: List[Player]):
         logger.info(f"Nothing happend to {target.name}...")
 
-    def critical_success(self, roll_result: int, source: Player, target: Player, others: List[Player]):
+    def critical_success(
+        self, roll_result: int, source: Player, target: Player, others: List[Player]
+    ):
         logger.info(f"Freezing and damaging all except {source.name}...")
-        self.freeze_group(
-            value=1,
-            players=others+[target]
-        )
-        self.damage_group(
-            value=1,
-            players=others+[target]
-        )
+        self.freeze_group(value=1, players=others + [target])
+        self.damage_group(value=1, players=others + [target])
 
-    def critical_failure(self, roll_result: int, source: Player, target: Player, others: List[Player]):
+    def critical_failure(
+        self, roll_result: int, source: Player, target: Player, others: List[Player]
+    ):
         logger.info(f"Freezing {source.name}...")
         source.skip_next_turn()

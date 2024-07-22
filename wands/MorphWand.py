@@ -5,6 +5,7 @@ from logs import logger
 
 from typing import List
 
+
 class MorphWand(Wand):
     def __init__(self) -> None:
         super().__init__(
@@ -20,16 +21,16 @@ class MorphWand(Wand):
         target.kill()
 
     def failure(self, roll_result: int, source: Player, target: Player, others: List[Player]):
-        logger.info(f"Nothing happend...")
+        logger.info("Nothing happend...")
 
-    def critical_success(self, roll_result: int, source: Player, target: Player, others: List[Player]):
-        logger.info(f"Damaging all...")
-        self.kill_group(
-            players=others+[source, target]
-        )
+    def critical_success(
+        self, roll_result: int, source: Player, target: Player, others: List[Player]
+    ):
+        logger.info("Damaging all...")
+        self.kill_group(players=others + [source, target])
 
-    def critical_failure(self, roll_result: int, source: Player, target: Player, others: List[Player]):
-        logger.info(f"Damaging all...")
-        self.kill_group(
-            players=others+[source, target]
-        )
+    def critical_failure(
+        self, roll_result: int, source: Player, target: Player, others: List[Player]
+    ):
+        logger.info("Damaging all...")
+        self.kill_group(players=others + [source, target])

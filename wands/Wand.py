@@ -6,7 +6,8 @@ from copy import copy
 
 from logs import logger
 
-class Wand():
+
+class Wand:
     def __init__(self, success, failure, critical_success, critical_failure) -> None:
         self.success = success
         self.failure = failure
@@ -28,12 +29,12 @@ class Wand():
     def cast(self, dice: int, source: Player, target: Player, others: List[Player]):
         roll_result = self.roll(dice)
         self.cast_results(dice, roll_result, source, target, others)
-        
+
     def roll(self, dice: int):
         roll_result = randint(1, dice)
         logger.info(f"Roll result: {roll_result}")
         return roll_result
-    
+
     def damage_group(self, value, players: List[Player]):
         for player in players:
             if not player.is_dead:
@@ -57,6 +58,7 @@ class Wand():
     def switch_wands(self, players: List[Player]):
         def sort_key(el: Player):
             return el.order
+
         players.sort(key=sort_key)
 
         alive_players = []
