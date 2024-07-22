@@ -2,6 +2,7 @@
 
 ## Roadmap
 
+- [ ] game rules
 - [ ] wands description
 - [ ] generate players
 - [ ] pick wands for the generation
