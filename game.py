@@ -67,7 +67,7 @@ class Game:
                 player.reset_hp()
 
         for player in self.players:
-            player_configs = f"{player.name}:{player.wand.name}:{player.dice}"
+            player_configs = f"{player.name} : {player.wand.name} : d{player.dice}"
             player_percent = winners.count(player.name) / repeats * 100
             player_results = f"{winners.count(player.name)} ({player_percent}%)"
             print(f"{player_configs} = {player_results}")
