@@ -9,16 +9,12 @@ if __name__ == "__main__":
         modes.single()
     
     elif mode == 'multi':
-        # full random simulation
-
         try:
             num_of_game = int(sys.argv[2])
             if not num_of_game:
                 raise ValueError
-
             modes.multi(num_of_game)
-        except ValueError:
+
+        except (ValueError, IndexError) as e:
             print(f"use 'python simulation x' where x is number of the games")
-            
-        except IndexError:
-            print(f"use 'python simulation x' where x is number of the games")
+           
