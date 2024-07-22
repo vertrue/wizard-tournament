@@ -2,7 +2,8 @@
 
 ## Game Rules
 
-For detailed game rules, please refer to the [rules/rules.md](rules/rules.md) file.
+For detailed game rules, please refer to the [rules/README.md](rules/README.md) file.
+
 
 ## Roadmap
 
