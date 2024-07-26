@@ -68,5 +68,14 @@ class Player:
             return False
 
 
+class AnimatedPlayer(Player):
+    def __init__(self, name: str, order: int) -> None:
+        super().__init__(name, order)
+
+        self.color = None
+        self.position = None
+        self.wand_position = None
+
+
 def generate_players(number_of_players: int):
     return sample(random_wizard_names, number_of_players)
