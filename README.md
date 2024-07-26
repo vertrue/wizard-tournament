@@ -1,6 +1,6 @@
 # Wizard Tournament Game
 
-![Demonstration](media/demo.mp4)
+![Demonstration](media/demo.mov)
 
 ## Game Rules
 
