@@ -1,5 +1,7 @@
 # Wizard Tournament Game
 
+![Demonstration](media/demo.mp4)
+
 ## Game Rules
 
 For detailed game rules, please refer to the [rules/README.md](rules/README.md) file.
@@ -11,7 +13,7 @@ For detailed game rules, please refer to the [rules/README.md](rules/README.md) 
 - [x] wands description
 - [x] generate players
 - [ ] pick wands for the generation
-- [ ] visual simulation for a round
+- [x] visual simulation for a round
 - [ ] statistic for the simulation
 - [ ] `n` numbers of the rounds
 - [ ] config base of the wands

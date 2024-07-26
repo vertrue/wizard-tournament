@@ -132,7 +132,7 @@ class AnimatedGame(Game):
     def __init__(self, players: List[str]) -> None:
         pygame.init()
         self.scale = 1.3
-        self.screen = pygame.display.set_mode((1280, 720))
+        self.screen = pygame.display.set_mode((1000, 1000))
         self.clock = pygame.time.Clock()
         self.center = pygame.Vector2(self.screen.get_width() / 2, self.screen.get_height() / 2)
         self.font = pygame.font.SysFont(None, int(16 * self.scale))
