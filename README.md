@@ -29,5 +29,6 @@ Simulation is available in 2 modes:
 - *multi*: creates 4 players with random wands and simulates it `x` times
 
 To run simulations use the following command:
-`python3 main.py single` or 
-`python3 main.py multi x` where x is the number of simulated games.
+- `python3 main.py animated` for single round animation
+- `python3 main.py single` for single round text-only 
+- `python3 main.py multi x` where x is the number of simulated games.
