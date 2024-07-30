@@ -65,8 +65,8 @@ class Game:
 
             winner = self.check_if_winner
 
-            logger.info(f"Game is finished. Winner is {winner}")
-            winners += [winner]
+            logger.info(f"Game is finished. Winner is {winner.name}")
+            winners += [winner.name]
 
             for player in self.players:
                 player.reset_hp()
@@ -116,14 +116,14 @@ class Game:
                 winners.append(player)
 
         if len(winners) == 1:
-            return winners[0].name
+            return winners[0]
         else:
             max_dice = 0
             winner = None
             for player in self.players:
                 if player.dice > max_dice:
                     max_dice = player.dice
-                    winner = player.name
+                    winner = player
 
             return winner
 
@@ -161,7 +161,6 @@ class AnimatedGame(Game):
         radius = min(self.screen.get_width(), self.screen.get_height()) * 0.25
         angle_step = 2 * math.pi / len(self.players)
 
-        # positions
         for i, player in enumerate(self.players):
             angle = i * angle_step
 
@@ -199,7 +198,6 @@ class AnimatedGame(Game):
             wand_image = pygame.transform.scale(wand_image, (20 * self.scale, 20 * self.scale))
             self.screen.blit(wand_image, wand_image.get_rect(center=player.wand_position))
 
-            # pygame.draw.circle(self.screen, player.color, player.wand_position, 10)
             wand_text = self.font.render(
                 f"d{self.players[i].dice} {player.wand.name}", True, (0, 0, 0)
             )
@@ -263,24 +261,8 @@ class AnimatedGame(Game):
 
         return (new_x, new_y)
 
-    def move_around_circle(self, current_pos, center, radius, speed, angle_step):
-        current_x, current_y = current_pos
-        center_x, center_y = center
-
-        # Calculate the angle between current position and center
-        angle = math.atan2(current_y - center_y, current_x - center_x)
-
-        # Increase the angle by the angle step to simulate movement
-        angle += speed * angle_step
-
-        # Calculate the new position on the circle
-        new_x = center_x + radius * math.cos(angle)
-        new_y = center_y + radius * math.sin(angle)
-
-        return (new_x, new_y)
-
     def damage(self, source: AnimatedPlayer, targets: List[AnimatedPlayer]):
-        speed = 10
+        speed = 13
         proj_positions = []
         proj_target = []
 
@@ -394,15 +376,10 @@ class AnimatedGame(Game):
                 self.clock.tick(60)
 
             winner = self.check_if_winner
-            logger.info(f"Game is finished. Winner is {winner}")
-            winners += [winner]
+            logger.info(f"Game is finished. Winner is {winner.name}")
+            winners += [winner.name]
 
         self.output_game_results(winners=winners, repeats=repeats)
-
-        winner = self.players[0]
-        for player in self.players:
-            if not player.is_dead:
-                winner = player
 
         self.game_results(winner=winner)
         pygame.display.flip()

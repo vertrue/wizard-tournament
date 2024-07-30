@@ -26,7 +26,8 @@ For detailed game rules, please refer to the [rules/README.md](rules/README.md) 
 
 ## How to run the simulation
 
-Simulation is available in 2 modes:
+Simulation is available in 3 modes:
+- *animated*: animates single simulation
 - *single*: creates 4 players with random wands and simulates it
 - *multi*: creates 4 players with random wands and simulates it `x` times
 
